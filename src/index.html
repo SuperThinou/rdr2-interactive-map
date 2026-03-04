@@ -12,10 +12,16 @@
 </head>
 
 <body>
-  <div id="map"></div>
+  <div id="map">
+    <div class="map-overlay hidden"></div>
+  </div>
+
   <button class="hamburger-btn">☰ Menu</button>
   <div class="menu hidden">
     <button class="close-menu-btn">☰ Menu</button>
+
+    <h2>Paramètres</h2>
+    <button class="save-manager-btn">Gérer mes sauvegardes</button>
 
     <h2 class="filters-title">Filtres</h2>
     <button type="button" class="check-all-btn">Check All</button>
@@ -39,6 +45,22 @@
     <label><input type="checkbox" value="treasure" checked>Trésors</label>
     <label><input type="checkbox" value="weapon" checked>Armes</label>
   </div>
+  </div>
+  <div class="save-manager-popup hidden">
+    <div class="save-manager-text-container">
+      <button class="close-popup-btn">⨉</button>
+      <h3>Comment ça marche ?</h3>
+      <p>C'est simple ! Le premier bouton permet de télécharger ta sauvegarde en cours, pour que tu sois sûr de ne
+        jamais
+        la perdre. Le deuxième bouton permet de charger une sauvegarde que tu as téléchargée</p>
+    </div>
+
+    <div class="save-manager-btn-container">
+      <button class="save-download-btn">Télécharger ma sauvegarde</button>
+
+      <input type="file" id="importInput" accept=".json" hidden />
+      <button class="save-import-btn">Importer une sauvegarde</button>
+    </div>
 </body>
 
 </html>

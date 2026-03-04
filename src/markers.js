@@ -2,10 +2,12 @@ import * as L from "leaflet";
 import { map } from "./map";
 import { icons } from "./icons";
 
-// Object to class markers by category
+export let allMarkerIds = [];
 export const categoryMarkers = {};
 
 function createMarker(id, lat, lng, label, category) {
+  allMarkerIds.push(id);
+
   const isFound = localStorage.getItem("found-" + id) === "true";
 
   const options = {
@@ -14,6 +16,7 @@ function createMarker(id, lat, lng, label, category) {
   };
   const marker = L.marker([lat, lng], options).addTo(map);
   marker.category = category;
+  marker.customId = id;
 
   marker.bindPopup(label);
 
@@ -34,7 +37,6 @@ function createMarker(id, lat, lng, label, category) {
 
   return marker;
 }
-
 
 // Marqueurs : Cartes de cigarettes
 createMarker("card-1", 1875, 1228, "Desert Fan Palm", "card");
