@@ -5,6 +5,7 @@ import rdr2Map from "./rdr2-map.jpg";
 export const map = L.map("map", {
   crs: L.CRS.Simple,
   minZoom: -2.6,
+  zoomControl: false,
 });
 
 const imageWidth = 9000;

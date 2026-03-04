@@ -71,20 +71,47 @@ a {
 /* END CSS RESET */
 
 #map { 
+ background: rgb(210, 177, 136);
  height: 100vh; 
  width: 100vw;
 }
 
+.hamburger-btn {
+    font-size: 1.5rem;
+    width: auto;
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    z-index: 1000;
+}
+
+.close-menu-btn {
+    font-size: 1.5rem;
+    width: auto;
+    background-color: transparent;
+}
+
 .menu {
-  max-height: 80vh;
+  height: 100vh;
   overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgb(211, 211, 211) white;
   position: absolute;
-  top: 90px;
-  left: 10px;
-  background: white;
+  top: 0;
+  background: rgb(255, 255, 255);
   padding: 10px;
   z-index: 1000;
   border-radius: 5px;
+}
+
+.hidden {
+    display: none;
+}
+
+.filters-title {
+    padding: 10px 0;
 }
 
 button {
@@ -92,12 +119,22 @@ button {
   width: 90px;
   border: none;
   border-radius: 20px;
+  transition: 0.1s ease-in-out;
 }
 .check-btn {
-    background-color: #77ff7e;
+    background-color: rgb(235, 255, 236);
+    margin-bottom: 10px;
+} 
+.check-btn:hover {
+    background-color: rgb(190, 255, 193);
+
 }
+
 .uncheck-btn {
-    background-color: #ff7777;
+    background-color: #ffefef;
+}
+.uncheck-btn:hover {
+    background-color: rgb(255, 193, 193);
 }
 
 label {
