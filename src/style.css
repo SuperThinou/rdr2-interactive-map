@@ -87,9 +87,26 @@ a {
   border-radius: 5px;
 }
 
+button {
+  cursor: pointer;
+  width: 90px;
+  border: none;
+  border-radius: 20px;
+}
+.check-btn {
+    background-color: #77ff7e;
+}
+.uncheck-btn {
+    background-color: #ff7777;
+}
+
 label {
   display: flex;
   align-items: center;
   gap: 8px;
   margin: 4px 0;
+}
+
+label, input {
+    cursor: pointer;
 }

@@ -36,7 +36,36 @@ function createMarker(id, lat, lng, label, category) {
 }
 
 // Filter Menu
+const checkBtn = document.querySelector(".check-btn");
+const uncheckBtn = document.querySelector(".uncheck-btn");
 const checkboxes = document.querySelectorAll(".menu input[type=checkbox]");
+
+checkBtn.addEventListener("click", () => {});
+uncheckBtn.addEventListener("click", () => {});
+
+checkBtn.addEventListener("click", () => {
+  checkboxes.forEach((cb) => {
+    cb.checked = true;
+    const category = cb.value;
+    if (categoryMarkers[category]) {
+      categoryMarkers[category].forEach((marker) => {
+        marker.addTo(map);
+      });
+    }
+  });
+});
+
+uncheckBtn.addEventListener("click", () => {
+  checkboxes.forEach((cb) => {
+    cb.checked = false;
+    const category = cb.value;
+    if (categoryMarkers[category]) {
+      categoryMarkers[category].forEach((marker) => {
+        map.removeLayer(marker);
+      });
+    }
+  });
+});
 
 checkboxes.forEach((cb) => {
   cb.addEventListener("change", () => {
