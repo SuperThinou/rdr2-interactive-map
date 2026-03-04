@@ -121,19 +121,19 @@ button {
   border-radius: 20px;
   transition: 0.1s ease-in-out;
 }
-.check-btn {
+.check-all-btn {
     background-color: rgb(235, 255, 236);
     margin-bottom: 10px;
 } 
-.check-btn:hover {
+.check-all-btn:hover {
     background-color: rgb(190, 255, 193);
 
 }
 
-.uncheck-btn {
+.uncheck-all-btn {
     background-color: #ffefef;
 }
-.uncheck-btn:hover {
+.uncheck-all-btn:hover {
     background-color: rgb(255, 193, 193);
 }
 
