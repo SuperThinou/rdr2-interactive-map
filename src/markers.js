@@ -2,6 +2,9 @@ import * as L from "leaflet";
 import { map } from "./map";
 import { icons } from "./icons";
 
+// Object to class markers by category
+const categoryMarkers = {};
+
 function createMarker(id, lat, lng, label, category) {
   const isFound = localStorage.getItem("found-" + id) === "true";
 
@@ -10,6 +13,7 @@ function createMarker(id, lat, lng, label, category) {
     icon: icons[category] ?? icons.item,
   };
   const marker = L.marker([lat, lng], options).addTo(map);
+  marker.category = category;
 
   marker.bindPopup(label);
 
@@ -23,7 +27,30 @@ function createMarker(id, lat, lng, label, category) {
       marker.setOpacity(!current ? 0.4 : 1);
     }
   });
+
+  // Automatically put the marker in the right category
+  if (!categoryMarkers[category]) categoryMarkers[category] = [];
+  categoryMarkers[category].push(marker);
+
+  return marker;
 }
+
+// Filter Menu
+const checkboxes = document.querySelectorAll(".menu input[type=checkbox]");
+
+checkboxes.forEach((cb) => {
+  cb.addEventListener("change", () => {
+    const category = cb.value;
+    const show = cb.checked;
+
+    if (categoryMarkers[category]) {
+      categoryMarkers[category].forEach((marker) => {
+        if (show) marker.addTo(map);
+        else map.removeLayer(marker);
+      });
+    }
+  });
+});
 
 // Marqueurs : Cartes de cigarettes
 createMarker("card-1", 1875, 1228, "Desert Fan Palm", "card");
