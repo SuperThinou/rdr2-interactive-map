@@ -124,7 +124,7 @@ a {
     width: auto;
     padding: 5px 20px;
 }
-.save-manager-btn:hover {
+.save-manager-btn:hover, .close-popup-btn:hover, .save-download-btn:hover {
     background-color: rgb(230, 230, 230);
 }
 
@@ -134,14 +134,17 @@ a {
 
 button {
   cursor: pointer;
-  width: 90px;
+  width: 100px;
   border: none;
   border-radius: 20px;
-  transition: 0.1s ease-in-out;
+  transition: 100ms ease;
 }
 .check-all-btn {
+    padding: 4px 0;
     background-color: rgb(235, 255, 236);
+    color: rgb(59, 168, 65);
     margin-bottom: 10px;
+    border: 1px solid;
 } 
 .check-all-btn:hover {
     background-color: rgb(190, 255, 193);
@@ -149,7 +152,10 @@ button {
 }
 
 .uncheck-all-btn {
-    background-color: #ffefef;
+    padding: 4px 0;
+    background-color: rgb(255, 239, 239);
+    color: rgb(170, 69, 65);
+    border: 1px solid;
 }
 .uncheck-all-btn:hover {
     background-color: rgb(255, 193, 193);
@@ -195,7 +201,6 @@ label, input {
 .save-download-btn, .save-import-btn {
     margin: 20px;
     width: 50%;
-    background: none;
 }
 
 .save-download-btn {
@@ -204,9 +209,6 @@ label, input {
     font-weight: bold;
         color: rgb(109, 109, 109);
 
-}
-.save-download-btn:hover {
-    background: rgb(240, 240, 240);
 }
 .save-download-btn:active {
     background: rgb(226, 226, 226);
