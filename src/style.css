@@ -180,6 +180,30 @@ label, input {
     cursor: pointer;
 }
 
+/* Progression */
+
+.progression-container {
+    padding-top: 10px;
+}
+
+.progress-bar-container {
+    padding: 1px;
+    width: 100%;
+    height: 10px;
+    background: #ffffff;
+    border: 1px solid rgb(75, 75, 75);
+    border-radius: 5px;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 50%;
+    background: rgb(41, 240, 51);
+    transition: width 0.3s ease;
+    border-radius: 5px;
+
+}
+
 /* Save Manager */
 .save-manager-popup {
     position: fixed;

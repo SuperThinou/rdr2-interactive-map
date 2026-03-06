@@ -1,5 +1,6 @@
 import { allMarkerIds } from "./markers";
 import { categoryMarkers } from "./markers";
+import { updateProgression } from "./menu";
 
 const overlay = document.querySelector(".map-overlay");
 const saveManagerBtn = document.querySelector(".save-manager-btn");
@@ -16,7 +17,7 @@ closePopupBtn.addEventListener("click", () => {
   overlay.classList.toggle("hidden");
 });
 
-function getFoundMarkers() {
+export function getFoundMarkers() {
   return allMarkerIds.filter(
     (id) => localStorage.getItem("found-" + id) === "true",
   );
@@ -55,6 +56,7 @@ exportBtn.addEventListener("click", () => {
 
 // Save Importation
 importBtn.addEventListener("click", () => {
+  importInput.value = "";
   importInput.click();
 });
 
@@ -71,8 +73,6 @@ importInput.addEventListener("change", (event) => {
 
       validateSave(data);
       loadSave(data);
-
-      alert("Sauvegarde importée avec succès !");
     } catch (error) {
       alert("Fichier invalide.");
     }
@@ -89,7 +89,9 @@ function validateSave(data) {
 
 function loadSave(data) {
   // Reset all the markers on the map
-  if (!confirm("Ta progression en cours va être écrasée. Continuer ?")) return;
+  if (!confirm("Ta progression en cours va être écrasée. Continuer ?")) {
+    return;
+  }
   allMarkerIds.forEach((id) => {
     localStorage.setItem("found-" + id, "false");
   });
@@ -99,8 +101,9 @@ function loadSave(data) {
     localStorage.setItem("found-" + id, "true");
   });
 
+  alert("Sauvegarde importée avec succès !");
+  updateProgression();
   refreshMap();
-  importInput.value = "";
 }
 
 function refreshMap() {

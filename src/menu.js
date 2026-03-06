@@ -1,5 +1,7 @@
 import { map } from "./map";
 import { categoryMarkers } from "./markers";
+import { allMarkerIds } from "./markers";
+import { getFoundMarkers } from "./save-manager";
 
 const hamburgerBtn = document.querySelector(".hamburger-btn");
 const closeMenuBtn = document.querySelector(".close-menu-btn");
@@ -55,3 +57,20 @@ checkboxes.forEach((cb) => {
     }
   });
 });
+
+// Progression bar
+const progressionText = document.querySelector(".progression-text");
+const progressBar = document.querySelector(".progress-bar");
+
+export function updateProgression() {
+  const totalMarkers = allMarkerIds.length;
+  const foundedMarkersId = getFoundMarkers();
+  const foundedMarkersNumber = foundedMarkersId.length;
+  const percent = (foundedMarkersNumber / totalMarkers) * 100;
+
+  progressionText.textContent =
+    "Items trouvés : " + foundedMarkersNumber + " / " + totalMarkers;
+  progressBar.style.width = percent + "%";
+
+  return progressionText;
+}

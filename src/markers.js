@@ -1,6 +1,7 @@
 import * as L from "leaflet";
 import { map } from "./map";
 import { icons } from "./icons";
+import { updateProgression } from "./menu";
 
 export let allMarkerIds = [];
 export const categoryMarkers = {};
@@ -28,6 +29,7 @@ function createMarker(id, lat, lng, label, category) {
     if (confirmChange) {
       localStorage.setItem("found-" + id, !current);
       marker.setOpacity(!current ? 0.4 : 1);
+      updateProgression();
     }
   });
 
