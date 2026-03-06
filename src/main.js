@@ -7,3 +7,7 @@ import "./save-manager";
 
 import { updateProgression } from "./menu";
 updateProgression();
+
+import { getCategoryProgress } from "./menu";
+import { categoryMarkers } from "./markers";
+console.log(categoryMarkers);

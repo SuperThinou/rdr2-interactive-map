@@ -7,6 +7,7 @@ const hamburgerBtn = document.querySelector(".hamburger-btn");
 const closeMenuBtn = document.querySelector(".close-menu-btn");
 const checkAllBtn = document.querySelector(".check-all-btn");
 const uncheckAllBtn = document.querySelector(".uncheck-all-btn");
+const labels = document.querySelectorAll("label");
 const checkboxes = document.querySelectorAll(".menu input[type=checkbox]");
 
 hamburgerBtn.addEventListener("click", () => {
@@ -56,9 +57,12 @@ checkboxes.forEach((cb) => {
       });
     }
   });
+
+  // Progress popup content display
+  const itemProgressionText = document.querySelector(".item-progression-text");
 });
 
-// Progression bar
+// Global progression display
 const progressionText = document.querySelector(".progression-text");
 const progressBar = document.querySelector(".progress-bar");
 
@@ -73,4 +77,18 @@ export function updateProgression() {
   progressBar.style.width = percent + "%";
 
   return progressionText;
+}
+
+function getCategoryProgress(categoryMarkers) {
+  const foundMarkers = getFoundMarkers();
+
+  const found = categoryMarkers.filter((id) =>
+    foundMarkers.includes(id),
+  ).length;
+
+  const total = categoryMarkers.length;
+
+  const percent = (found / total) * 100;
+
+  return { found, total, percent };
 }
