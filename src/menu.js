@@ -2,6 +2,7 @@ import { map } from "./map";
 import { categoryMarkers } from "./markers";
 import { allMarkerIds } from "./markers";
 import { getFoundMarkers } from "./save-manager";
+import "./filters";
 
 const hamburgerBtn = document.querySelector(".hamburger-btn");
 const closeMenuBtn = document.querySelector(".close-menu-btn");
@@ -57,8 +58,6 @@ checkboxes.forEach((cb) => {
       });
     }
   });
-
-  const itemProgressionText = document.querySelector(".item-progression-text");
 });
 
 // Global progression display

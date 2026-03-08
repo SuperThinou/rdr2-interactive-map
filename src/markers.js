@@ -33,8 +33,8 @@ function createMarker(id, lat, lng, label, category) {
     }
   });
 
-  // Automatically put the marker in the right category
-  if (!categoryMarkers[category]) categoryMarkers[category] = [];
+  // Fills and sort the categoryMarkers object
+  categoryMarkers[category] ||= [];
   categoryMarkers[category].push(marker);
 
   return marker;
