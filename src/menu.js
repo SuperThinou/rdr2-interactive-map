@@ -58,7 +58,6 @@ checkboxes.forEach((cb) => {
     }
   });
 
-  // Progress popup content display
   const itemProgressionText = document.querySelector(".item-progression-text");
 });
 

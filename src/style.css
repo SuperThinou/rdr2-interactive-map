@@ -71,45 +71,45 @@ a {
 /* END CSS RESET */
 
 * {
-    color: rgb(37, 37, 37);
+  color: rgb(37, 37, 37);
 }
 
-#map { 
- background: rgb(210, 177, 136);
- height: 100vh; 
- width: 100vw;
+#map {
+  background: rgb(210, 177, 136);
+  height: 100vh;
+  width: 100vw;
 }
 .map-overlay {
   position: absolute;
   inset: 0;
   backdrop-filter: blur(8px);
   background: rgba(255, 255, 255, 0.1);
-  z-index: 500; 
+  z-index: 500;
 }
 
 .hamburger-btn {
-    font-size: 1.5rem;
-    font-weight: bold;
-    width: auto;
-    background-color: transparent;
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 10px;
-    z-index: 1000;
+  font-size: 1.5rem;
+  font-weight: bold;
+  width: auto;
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px;
+  z-index: 1000;
 }
 
 .close-menu-btn {
-    font-weight: bold;
-    padding-bottom: 10px;
-    font-size: 1.5rem;
-    width: auto;
-    background-color: transparent;
+  font-weight: bold;
+  padding-bottom: 10px;
+  font-size: 1.5rem;
+  width: auto;
+  background-color: transparent;
 }
 
 .menu {
   height: 100vh;
-  width: clamp(200px, 18vw, 300px);
+  width: clamp(200px, 30vw, 300px);
   overflow: auto;
   scrollbar-width: thin;
   scrollbar-color: rgb(211, 211, 211) white;
@@ -122,20 +122,22 @@ a {
 }
 
 .hidden {
-    display: none;
+  display: none;
 }
 
 .save-manager-btn {
-    margin: 5px 0;
-    width: auto;
-    padding: 5px 20px;
+  margin: 5px 0;
+  width: auto;
+  padding: 5px 20px;
 }
-.save-manager-btn:hover, .close-popup-btn:hover, .save-download-btn:hover {
-    background-color: rgb(230, 230, 230);
+.save-manager-btn:hover,
+.close-popup-btn:hover,
+.save-download-btn:hover {
+  background-color: rgb(230, 230, 230);
 }
 
 .filters-title {
-    padding: 10px 0;
+  padding: 10px 0;
 }
 
 button {
@@ -146,30 +148,29 @@ button {
   transition: 100ms ease;
 }
 .check-all-btn {
-    padding: 4px 0;
-    background-color: rgb(235, 255, 236);
-    color: rgb(59, 168, 65);
-    margin-bottom: 10px;
-    border: 1px solid;
-} 
+  padding: 4px 0;
+  background-color: rgb(235, 255, 236);
+  color: rgb(59, 168, 65);
+  margin-bottom: 10px;
+  border: 1px solid;
+}
 .check-all-btn:hover {
-    background-color: rgb(190, 255, 193);
-
+  background-color: rgb(190, 255, 193);
 }
 
 .uncheck-all-btn {
-    padding: 4px 0;
-    background-color: rgb(255, 239, 239);
-    color: rgb(170, 69, 65);
-    margin-bottom: 10px;
-    border: 1px solid;
+  padding: 4px 0;
+  background-color: rgb(255, 239, 239);
+  color: rgb(170, 69, 65);
+  margin-bottom: 10px;
+  border: 1px solid;
 }
 .uncheck-all-btn:hover {
-    background-color: rgb(255, 193, 193);
+  background-color: rgb(255, 193, 193);
 }
 
 label {
-    position: relative;
+  position: relative;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -177,39 +178,40 @@ label {
   font-weight: bold;
 }
 
-label, input {
-    cursor: pointer;
+label,
+input {
+  cursor: pointer;
 }
 
 /* Progression */
 
 .progression-container {
-    padding-top: 10px;
+  padding-top: 10px;
 }
 
 .progress-bar-container {
-    padding: 1px;
-    width: 100%;
-    height: 10px;
-    background: #ffffff;
-    border: 1px solid rgb(75, 75, 75);
-    border-radius: 5px;
+  padding: 1px;
+  width: 100%;
+  height: 10px;
+  background: #ffffff;
+  border: 1px solid rgb(75, 75, 75);
+  border-radius: 5px;
 }
 
- .item-progress-bar {
-    height: 100%;
-    width: 50%;
-    background: gold;
-    transition: width 0.3s ease;
-    border-radius: 5px;
-} 
+.item-progress-bar {
+  height: 100%;
+  width: 50%;
+  background: gold;
+  transition: width 0.3s ease;
+  border-radius: 5px;
+}
 
 .progress-bar {
-    height: 100%;
-    width: 50%;
-    background: rgb(83, 218, 90);
-    transition: width 0.3s ease;
-    border-radius: 5px;
+  height: 100%;
+  width: 50%;
+  background: rgb(83, 218, 90);
+  transition: width 0.3s ease;
+  border-radius: 5px;
 }
 
 .progress-popup {
@@ -220,7 +222,7 @@ label, input {
   transform: translateY(-50%);
   padding: 6px;
   border-radius: 4px;
-transition: opacity 0.1s ease;
+  transition: opacity 0.1s ease;
   opacity: 0;
 }
 label:hover .progress-popup {
@@ -229,75 +231,74 @@ label:hover .progress-popup {
 
 /* Save Manager */
 .save-manager-popup {
-    position: fixed;
-    z-index: 1000;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  position: fixed;
+  z-index: 1000;
+  top: 50%;
+  left: 60%;
+  transform: translate(-50%, -50%);
 
-    padding: 20px;
-    height: 80vh;
-    width: 60vw;
-    background-color: white;
-    border-radius: 20px;
+  padding: 20px;
+  height: 80vh;
+  width: 60vw;
+  background-color: white;
+  border-radius: 20px;
 }
 
 .save-manager-text-container {
-    height: 20%;
-    overflow: auto;
+  height: 20%;
+  overflow: auto;
 }
 
 .save-manager-btn-container {
-    height: 76%;
-    width: 100%;
+  height: 76%;
+  width: 100%;
 
-    display: flex;
+  display: flex;
 }
 
-.save-download-btn, .save-import-btn {
-    margin: 15px;
-    width: 50%;
+.save-download-btn,
+.save-import-btn {
+  margin: 15px;
+  width: 50%;
 }
 
 .save-download-btn {
-    background: rgb(248, 248, 248);
-    border: 2px solid rgb(209, 209, 209);
-    font-weight: bold;
-        color: rgb(109, 109, 109);
-
+  background: rgb(248, 248, 248);
+  border: 2px solid rgb(209, 209, 209);
+  font-weight: bold;
+  color: rgb(109, 109, 109);
 }
 .save-download-btn:active {
-    background: rgb(226, 226, 226);
+  background: rgb(226, 226, 226);
 }
 .save-import-btn {
-    background: rgba(131, 205, 255, 0.151);
-    border: 2px dashed rgb(131, 206, 255);
-    font-weight: bold;
-    color: rgb(131, 206, 255);
-
+  background: rgba(131, 205, 255, 0.151);
+  border: 2px dashed rgb(131, 206, 255);
+  font-weight: bold;
+  color: rgb(131, 206, 255);
 }
 .save-import-btn:hover {
-    background: rgba(131, 205, 255, 0.288);
+  background: rgba(131, 205, 255, 0.288);
 }
- 
-@media screen and (max-width: 1200px) {
-    .save-manager-popup {
-            transform: translate(-100%, -50%);
-        left: 100%;
-        height: 100vh;
-        width: calc(100vw - 200px);
-        border-radius: 0;
-        border-left: 3px solid rgb(236, 236, 236);
-    }
-} 
-
 @media screen and (max-width: 900px) {
-    .save-manager-btn-container {
-        flex-direction: column;
-}
+  .menu {
+    width: 200px;
+  }
+  .save-manager-popup {
+    transform: translate(-100%, -50%);
+    left: 100%;
+    height: 100vh;
+    width: calc(100vw - 200px);
+    border-radius: 0;
+    border-left: 3px solid rgb(236, 236, 236);
+  }
+  .save-manager-btn-container {
+    flex-direction: column;
+  }
 
-    .save-download-btn, .save-import-btn {
-        width: calc(100% - 40px);
-        height: 100%;
-    }
+  .save-download-btn,
+  .save-import-btn {
+    width: calc(100% - 40px);
+    height: 100%;
+  }
 }
