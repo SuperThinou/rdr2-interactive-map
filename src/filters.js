@@ -1,3 +1,5 @@
+import { categoryMarkers } from "./markers";
+import { getFoundMarkers } from "./save-manager";
 
 const filters = [
   { value: "card", label: "Cartes de cigarettes" },
@@ -33,12 +35,12 @@ filters.forEach((filter) => {
   label.appendChild(checkbox);
   label.append(" " + filter.label);
 
-  const popup = createProgressPopup(filter.label);
+  const popup = createProgressPopup(filter.value);
   filtersContainer.appendChild(label);
   label.appendChild(popup);
 });
 
-function createProgressPopup(labelText) {
+function createProgressPopup(category) {
   const popup = document.createElement("div");
   const text = document.createElement("h3");
   const barContainer = document.createElement("div");
@@ -46,13 +48,29 @@ function createProgressPopup(labelText) {
 
   popup.className = "progress-popup";
   text.className = "item-progression-text";
+  text.dataset.category = category;
   barContainer.className = "progress-bar-container";
   bar.className = "progress-bar";
 
-  text.textContent = labelText;
+  const { found, total } = getCategoryProgress(category);
+  updateItemProgression(text, found, total);
 
   barContainer.appendChild(bar);
   popup.append(text, barContainer);
 
   return popup;
+}
+
+function getCategoryProgress(category) {
+  const total = categoryMarkers[category].length;
+
+  const found = getFoundMarkers().filter((id) =>
+    id.startsWith(category + "-"),
+  ).length;
+
+  return { found, total };
+}
+
+export function updateItemProgression(text, found, total) {
+  text.textContent = `${found} / ${total}`;
 }

@@ -3,6 +3,7 @@ import { categoryMarkers } from "./markers";
 import { allMarkerIds } from "./markers";
 import { getFoundMarkers } from "./save-manager";
 import "./filters";
+import { updateItemProgression } from "./filters";
 
 const hamburgerBtn = document.querySelector(".hamburger-btn");
 const closeMenuBtn = document.querySelector(".close-menu-btn");
@@ -74,19 +75,21 @@ export function updateProgression() {
     "Items trouvés : " + foundedMarkersNumber + " / " + totalMarkers;
   progressBar.style.width = percent + "%";
 
+  // Update popup progession for each marker
+  document.querySelectorAll(".item-progression-text").forEach((text) => {
+    const category = text.dataset.category;
+
+    const total = categoryMarkers[category].length;
+
+    const found = getFoundMarkers().filter((id) =>
+      id.startsWith(category + "-"),
+    ).length;
+
+    text.textContent = `${found} / ${total}`;
+  });
   return progressionText;
 }
 
-function getCategoryProgress(categoryMarkers) {
-  const foundMarkers = getFoundMarkers();
-
-  const found = categoryMarkers.filter((id) =>
-    foundMarkers.includes(id),
-  ).length;
-
-  const total = categoryMarkers.length;
-
-  const percent = (found / total) * 100;
-
-  return { found, total, percent };
-}
+document.addEventListener("markerUpdated", () => {
+  updateProgression();
+});
