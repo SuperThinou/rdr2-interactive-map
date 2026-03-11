@@ -52,8 +52,7 @@ function createProgressPopup(category) {
   barContainer.className = "progress-bar-container";
   bar.className = "progress-bar";
 
-  const { found, total } = getCategoryProgress(category);
-  updateItemProgression(text, found, total);
+  updateItemProgression(text);
 
   barContainer.appendChild(bar);
   popup.append(text, barContainer);
@@ -71,6 +70,9 @@ function getCategoryProgress(category) {
   return { found, total };
 }
 
-export function updateItemProgression(text, found, total) {
+export function updateItemProgression(text) {
+  const category = text.dataset.category;
+  const { found, total } = getCategoryProgress(category);
+
   text.textContent = `${found} / ${total}`;
 }

@@ -9,7 +9,6 @@ const hamburgerBtn = document.querySelector(".hamburger-btn");
 const closeMenuBtn = document.querySelector(".close-menu-btn");
 const checkAllBtn = document.querySelector(".check-all-btn");
 const uncheckAllBtn = document.querySelector(".uncheck-all-btn");
-const labels = document.querySelectorAll("label");
 const checkboxes = document.querySelectorAll(".menu input[type=checkbox]");
 
 hamburgerBtn.addEventListener("click", () => {
@@ -65,7 +64,7 @@ checkboxes.forEach((cb) => {
 const progressionText = document.querySelector(".progression-text");
 const progressBar = document.querySelector(".progress-bar");
 
-export function updateProgression() {
+export function updateGlobalProgression() {
   const totalMarkers = allMarkerIds.length;
   const foundedMarkersId = getFoundMarkers();
   const foundedMarkersNumber = foundedMarkersId.length;
@@ -75,21 +74,13 @@ export function updateProgression() {
     "Items trouvés : " + foundedMarkersNumber + " / " + totalMarkers;
   progressBar.style.width = percent + "%";
 
-  // Update popup progession for each marker
-  document.querySelectorAll(".item-progression-text").forEach((text) => {
-    const category = text.dataset.category;
-
-    const total = categoryMarkers[category].length;
-
-    const found = getFoundMarkers().filter((id) =>
-      id.startsWith(category + "-"),
-    ).length;
-
-    text.textContent = `${found} / ${total}`;
-  });
   return progressionText;
 }
 
 document.addEventListener("markerUpdated", () => {
-  updateProgression();
+  updateGlobalProgression();
+
+  document.querySelectorAll(".item-progression-text").forEach((text) => {
+    updateItemProgression(text);
+  });
 });

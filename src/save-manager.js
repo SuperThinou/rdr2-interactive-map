@@ -1,6 +1,7 @@
 import { allMarkerIds } from "./markers";
 import { categoryMarkers } from "./markers";
-import { updateProgression } from "./menu";
+import { updateGlobalProgression } from "./menu";
+import { updateItemProgression } from "./filters";
 
 const overlay = document.querySelector(".map-overlay");
 const saveManagerBtn = document.querySelector(".save-manager-btn");
@@ -102,7 +103,10 @@ function loadSave(data) {
   });
 
   alert("Sauvegarde importée avec succès !");
-  updateProgression();
+  updateGlobalProgression();
+  document.querySelectorAll(".item-progression-text").forEach((text) => {
+    updateItemProgression(text);
+  });
   refreshMap();
 }
 
