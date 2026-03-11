@@ -50,7 +50,7 @@ function createProgressPopup(category) {
   text.className = "item-progression-text";
   text.dataset.category = category;
   barContainer.className = "progress-bar-container";
-  bar.className = "progress-bar";
+  bar.className = "item-progress-bar";
 
   updateItemProgression(text);
 
@@ -75,4 +75,14 @@ export function updateItemProgression(text) {
   const { found, total } = getCategoryProgress(category);
 
   text.textContent = `${found} / ${total}`;
+
+  const percent = (found / total) * 100;
+
+  // Need to put these conditions to make sure all DOM is loaded before calling bar
+  const barContainer = text.nextElementSibling;
+  if (!barContainer) return;
+
+  const bar = barContainer.querySelector(".item-progress-bar");
+  if (!bar) return;
+  bar.style.width = percent + "%";
 }
