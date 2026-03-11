@@ -2,7 +2,6 @@ import { map } from "./map";
 import { categoryMarkers } from "./markers";
 import { allMarkerIds } from "./markers";
 import { getFoundMarkers } from "./save-manager";
-import "./filters";
 import { updateItemProgression } from "./filters";
 
 const hamburgerBtn = document.querySelector(".hamburger-btn");
